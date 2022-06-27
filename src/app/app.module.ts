@@ -16,3 +16,6 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// importer different modules
+// demarer l'appli et les composants

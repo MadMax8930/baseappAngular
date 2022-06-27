@@ -4,16 +4,23 @@ import { UiModule } from '../ui/ui.module';
 import { IconsModule } from '../icons/icons.module';
 import { TemplatesModule } from '../templates/templates.module';
 import { LoginModule } from '../login/login.module';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavBarComponent,
+    FooterComponent,
+    HeaderComponent
+  ],
   imports: [
     CommonModule
   ],
   exports: [
-    UiModule, IconsModule, TemplatesModule, LoginModule
+    UiModule, IconsModule, TemplatesModule, LoginModule, NavBarComponent, FooterComponent, HeaderComponent
   ]
 })
 export class CoreModule { }

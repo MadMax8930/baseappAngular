@@ -1,5 +1,10 @@
-<h1>Hello World!</h1>
+
 <!--fonction, pour creer des instances en fonction de l'url
   les pages en fonction de l'url-->
-<app-ui></app-ui>
-<router-outlet></router-outlet>
+<app-ui>
+  <app-header class="tr-header"></app-header>
+  <button class="tr-header">Click</button>
+  <app-nav-bar class="tr-nav"></app-nav-bar>
+  <router-outlet class="tr-content"></router-outlet>
+  <app-footer class="tr-footer"></app-footer>
+</app-ui>

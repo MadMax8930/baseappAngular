@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PageForgotPasswordComponent } from './login/pages/page-forgot-password/page-forgot-password.component';
 import { PageResetPasswordComponent } from './login/pages/page-reset-password/page-reset-password.component';
 import { PageSignInComponent } from './login/pages/page-sign-in/page-sign-in.component';
@@ -18,11 +18,16 @@ const routes: Routes = [
   {path: "**", loadChildren:() => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule)},
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-
 // avec children : pas chargé lors de lancement de mon appli (lazy laoding)
 // avec la logique metier on les charge pas au debut. Mais sur demande
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes,
+    { preloadingStrategy: PreloadAllModules }
+    // Des qu'il y a un peu de bande passante cela charge les autres modules qui sont en lazy loading
+    )],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule { }
+ 

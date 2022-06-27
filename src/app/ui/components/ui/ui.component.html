@@ -2,8 +2,18 @@
   Header
   <!--directive ng-content (transclusion) shortcut du <app-ui>contenu</app-ui>-->
   <ng-content select=".tr-header"></ng-content>
+  <!--event binding (binder l'evenement click) = la methode sur laquelle on veut binder-->
+<!-- <button (click)="toggle()">Open/Close</button> -->
+    <span (click)="toggle()">
+      <ng-content *ngIf="!isNavOpen; else elseBtn" select=".tr-btn-open"></ng-content>
+    </span>
+
+     <ng-template #elseBtn>
+       <ng-content select=".tr-btn-close"></ng-content>
+     </ng-template>
+
 </header>
-<main>
+<main [ngClass]="{'close-aside': !isNavOpen}">
   <div class="shadow position-fixed">
   </div>
   <aside>

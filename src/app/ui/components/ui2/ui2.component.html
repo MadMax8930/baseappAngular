@@ -1,0 +1,19 @@
+<header>
+  Header
+  <!--directive ng-content (transclusion) shortcut du <app-ui>contenu</app-ui>-->
+  <ng-content select=".tr-header"></ng-content>
+</header>
+<main>
+      <div>
+          Nav
+          <ng-content select=".tr-nav"></ng-content>
+      </div>
+      <div>
+          content
+          <ng-content select=".tr-content"></ng-content>
+      </div>
+      <footer>
+          Footer
+          <ng-content select=".tr-footer"></ng-content>
+      </footer>
+</main>

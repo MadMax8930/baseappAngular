@@ -4,14 +4,13 @@ import { PageForgotPasswordComponent } from './login/pages/page-forgot-password/
 import { PageResetPasswordComponent } from './login/pages/page-reset-password/page-reset-password.component';
 import { PageSignInComponent } from './login/pages/page-sign-in/page-sign-in.component';
 import { PageSignUpComponent } from './login/pages/page-sign-up/page-sign-up.component';
+import { PageAddOrderComponent } from './orders/pages/page-add-order/page-add-order.component';
+import { PageEditOrderComponent } from './orders/pages/page-edit-order/page-edit-order.component';
+import { PageListOrdersComponent } from './orders/pages/page-list-orders/page-list-orders.component';
 
 const routes: Routes = [
   // etant sur url, on est redirect vers url/sing-in
   {path: "", redirectTo: "sign-in", pathMatch: "full"},
-  {path: "sign-in", component: PageSignInComponent},
-  {path: "sign-up", component: PageSignUpComponent},
-  {path: "reset", component: PageResetPasswordComponent},
-  {path: "forgot", component: PageForgotPasswordComponent},
 
   {path: "orders", loadChildren:() => import('./orders/orders.module').then(m => m.OrdersModule)},
   {path: "clients", loadChildren:() => import('./clients/clients.module').then(m => m.ClientsModule)},
@@ -30,4 +29,3 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
- 

@@ -12,8 +12,8 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
+    AppRoutingModule,  //module des routes en dernier, car page not found doit etre derniere
   ],
   providers: [],
   bootstrap: [AppComponent]

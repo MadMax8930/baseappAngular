@@ -6,6 +6,7 @@ import { PageListOrdersComponent } from './pages/page-list-orders/page-list-orde
 import { PageAddOrderComponent } from './pages/page-add-order/page-add-order.component';
 import { PageEditOrderComponent } from './pages/page-edit-order/page-edit-order.component';
 import { HttpClientModule } from '@angular/Common/http';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,8 +17,9 @@ import { HttpClientModule } from '@angular/Common/http';
   ],
   imports: [
     CommonModule,
+    SharedModule,
+    HttpClientModule,
     OrdersRoutingModule,
-    HttpClientModule
   ]
 })
 export class OrdersModule { }

@@ -14,7 +14,7 @@ export class OrdersService {
   // Observable froid
   private observable$ = new Observable((obs) => obs.next(Math.random()));
 
-  //Observable chaud
+  // Observable chaud
   private subject$ = new Subject<string>();
   private behaviorSubject$ = new BehaviorSubject<string>("data Init");
 
@@ -50,7 +50,7 @@ export class OrdersService {
     console.warn('Subscribe');
     this.behaviorSubject$.subscribe((data) => console.log(`Observer behavsubject 1 : ${data}`));
     this.behaviorSubject$.subscribe((data) => console.log(`Observer behavsubject 2 : ${data}`));
-    
+
     console.warn('Next');
     this.behaviorSubject$.next('Premier message');
     console.warn(

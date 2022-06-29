@@ -8,17 +8,32 @@ import { OrdersService } from '../../services/orders.service';
   styleUrls: ['./page-list-orders.component.scss']
 })
 export class PageListOrdersComponent implements OnInit {
-  public collection!: Order[];
+  public parentCollection!: Order[];
+  public parentHeaders: string[];
+  public monTitre: {label: string};
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService) {
+    this.monTitre = {label: "Liste des commandes"};
+    this.parentHeaders = ["TjmHt", "NbJours", "TVA", "Type Presta", "Client", "State"];
+   }
 
   ngOnInit(): void {
     this.ordersService.collection$.subscribe(
       (data: Order[]) => {
-        this.collection = [...data]
-        console.log(this.collection);
+        this.parentCollection = [...data]
+        console.log(this.parentCollection);
       }
     )
+  }
+
+  changeTitle() {
+    // this.monTitre.label = 'Un autre titre';
+
+    // En Js il y a aucun changement a la modif du code de cet objet
+    // ce qui est comparé c'est l'emplacement memoire de l'objet
+    // car pas de respect du principe d'immuabilité
+
+    this.monTitre = {label: 'Un autre titre'};
   }
 
 }
